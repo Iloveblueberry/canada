@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    color: #333;
+    line-height: 1;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+header .inner {
+    margin: 0 auto;
+    width: 1440px;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 18px;
+}
+
+header .inner > ul {
+    position: relative;
+}
+
+header .inner ul>li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header .inner .lang_select ul li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+header .inner .lang_select ul li span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 5px;
+}
+
+header .inner .lang ul li {
+    padding-left: 40px;
+}
+
+header .inner .lang span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+main figure {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+main figure::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+main figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main h3 {
+    font-family:'Cafe24Supermagic-Bold-v1.0';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 150px;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 1rem;
+}
+
+main .booking_box {
+    position: absolute;
+    bottom: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+}
+
+main .booking_box .booking_inner {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #999999;
+    border-radius: 0 60px 60px 0;
+    height: 70px;
+}
+main .booking_box .booking_inner p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+main .booking_box .booking_inner #pl {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #aaaaaa;
+}
+
+main .booking_box .booking_inner #num {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #aaaaaa;
+}
+
+
+main .booking_box .booking_inner #date01 {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #aaaaaa;
+}
+
+
+main .booking_box .booking_inner .search .submit {
+    width: 130px;
+    height: 50px;
+    border-radius: 0 50px 50px 0;
+    background-color: rgb(255, 141, 141);
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+

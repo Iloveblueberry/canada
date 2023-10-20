@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <h1>logo</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+                <div class="lang">
+                    <ul>
+                        <li><a href="#"><img src="img/canada.png" alt="canada"><span>English</span></a></li>
+                        <li><a href="#"><img src="img/south_korea.png" alt="korea"><span>한국어</span></a></li>
+                    </ul>
+                </div><!-- .lang end -->
+            </div><!-- .inner end -->
+        </header><!-- .header end -->
+
+        <!-- 🎈main -->
+        <main>
+            <figure>
+                <img src="img/main_visual.jpg" alt="캐나다 메인이미지">
+                <h3>CANADA</h3>
+            </figure>
+
+            <div class="booking_box">
+                <div class="booking_inner">
+                    <div class="place">
+                        <p>여행지</p>
+                        <select name="place" id="pl">
+                            <option value="vancouver">밴쿠버</option>
+                            <option value="toronto">토론토</option>
+                            <option value="joffrelake">조프리레이크</option>
+                            <option value="naiagarafalls">나이아가라폭포</option>
+                        </select><!-- #pl end -->
+                    </div><!-- .place end -->
+                    <div class="guest">
+                        <p>게스트</p>
+                        <select name="num" id="num">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                            <option value="1">4</option>
+                            <option value="1">5</option>
+                            <option value="1">6</option>
+                            <option value="1">7</option>
+                            <option value="1">8</option>
+                            <option value="1">9</option>
+                        </select><!-- .num end -->
+                    </div><!-- .guest end -->
+                    <div class="date">
+                        <p>출발예정일</p>
+                        <label for="date"></label>
+                        <input type="date" id="date01" max="2077-10-19" min="2023-10-01" value="2023-10-19">
+                    </div><!-- .date end -->
+                    <div class="search">
+                        <input type="submit" value="검색하기" class="submit">
+                    </div><!-- .search end -->
+                </div><!-- .booking_inner end -->
+            </div><!-- .booking_box end -->
+        </main>
+    </div><!-- .wrap end -->
+</body>
+</html>
