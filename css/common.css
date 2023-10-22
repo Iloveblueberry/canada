@@ -111,7 +111,7 @@ main figure img {
     object-fit: cover;
 }
 
-main h3 {
+main h2 {
     font-family: 'Cafe24Supermagic-Bold-v1.0';
     position: absolute;
     top: 50%;
@@ -119,6 +119,7 @@ main h3 {
     transform: translate(-50%, -50%);
     font-size: 15rem;
     color: #fff;
+    background-color: none;
     font-weight: normal;
     letter-spacing: 1rem;
 }
@@ -158,6 +159,11 @@ main .booking_box .booking_inner #num {
     border: 1px solid #aaaaaa;
 }
 
+main .booking_box .booking_inner .date label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
 main .booking_box .booking_inner #date01 {
     width: 10.41vw;
@@ -271,8 +277,6 @@ main .booking_box .booking_inner .search .submit {
     align-items: center;
     margin-bottom: 20px;
 }
-
-.city .inner .list .li_inner .item p {}
 
 .city .inner .list .li_inner .item span {
     font-size: 16px;
@@ -508,7 +512,7 @@ footer .inner .social li img:hover {
 
 footer .inner p {
     font-size: 14px;
-    color: #666;
+    color:#B5B5B5;
     margin-top: 10px;
 }
 
