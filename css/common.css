@@ -14,6 +14,12 @@
     font-style: normal;
 }
 
+html,body {
+    font-size: 62.5%;
+    /* 62.5% = 10px = 1rem */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -33,20 +39,22 @@ body {
     font-family: 'Pretendard-Regular';
     color: #333;
     line-height: 1;
+    font-size: 16px;
 }
 
 header {
+    max-width: 1920px;
     width: 100%;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 80px;
+    position: fixed;
     z-index: 9;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 header .inner {
     margin: 0 auto;
-    width: 1440px;
+    max-width: 1440px;
+    width: calc(100% - 30px);
     height: 100%;
     align-items: center;
     display: flex;
@@ -55,46 +63,36 @@ header .inner {
     font-size: 18px;
 }
 
-header .inner > ul {
+header .inner>ul {
     position: relative;
 }
 
-header .inner ul>li {
+header .inner .nav li {
     display: inline-block;
     margin-left: 20px;
-}
-
-header .inner .lang_select ul li {
-    display: inline-block;
-    margin-right: 40px;
-}
-
-header .inner .lang_select ul li span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-left: 5px;
+    font-weight: bold;
 }
 
 header .inner .lang ul li {
-    padding-left: 40px;
+    display: inline-block;
 }
 
-header .inner .lang span{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+header .inner .lang ul li img {
+    width: 25px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 main {
+    max-width: 1920px;
     width: 100%;
-    height: 100vh;
+    height: 100vh; 
+    position: relative;
 }
 
 main figure {
     width: 100%;
     height: 100%;
-    position: relative;
 }
 
 main figure::before {
@@ -113,24 +111,25 @@ main figure img {
     object-fit: cover;
 }
 
-main h3 {
-    font-family:'Cafe24Supermagic-Bold-v1.0';
+main h2 {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 150px;
+    transform: translate(-50%, -50%);
+    font-size: 15rem;
     color: #fff;
+    background-color: #00000011;
     font-weight: normal;
     letter-spacing: 1rem;
 }
 
 main .booking_box {
+    width: 41.66vw;
     position: absolute;
-    bottom: 250px;
+    bottom: 20rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
 }
 
 main .booking_box .booking_inner {
@@ -138,40 +137,40 @@ main .booking_box .booking_inner {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
-    box-shadow: 2px 2px 2px #999999;
-    border-radius: 0 60px 60px 0;
+    box-shadow: 3px 3px #c5c4c4;
+    border-radius: 5px 60px 60px 5px;
     height: 70px;
-}
-main .booking_box .booking_inner p {
-    font-weight: bold;
-    margin-bottom: 5px;
 }
 
 main .booking_box .booking_inner #pl {
-    width: 200px;
     height: 30px;
     border: 1px solid #aaaaaa;
 }
 
 main .booking_box .booking_inner #num {
-    width: 200px;
+    width: 10.41vw;
     height: 30px;
     border: 1px solid #aaaaaa;
 }
 
+main .booking_box .booking_inner label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
 main .booking_box .booking_inner #date01 {
-    width: 200px;
+    width: 10.41vw;
     height: 30px;
     border: 1px solid #aaaaaa;
 }
 
 
 main .booking_box .booking_inner .search .submit {
-    width: 130px;
+    width: 10.41vw;
     height: 50px;
-    border-radius: 0 50px 50px 0;
-    background-color: rgb(255, 141, 141);
+    border-radius: 0px 50px 50px 0;
+    background-color: rgb(228, 21, 21);
     font-weight: bold;
     border: none;
     color: #fff;
@@ -179,5 +178,353 @@ main .booking_box .booking_inner .search .submit {
     cursor: pointer;
 }
 
+/* 🎈city */
+.city {
+    max-width: 1920px;
+    width: 100%;
+    padding: 100px 0;
+    position: relative;
+    isolation: isolate;
+    background-image: url('../img/main_visual.jpg');
+    background-size: cover;
+    background-size: center;
+    /* background-color: #ebebeb; */
+}
+
+.city::before {
+    content: '';
+    position: absolute;
+    background: white;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.7;
+}
+
+.city .inner {
+    max-width: 1000px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+}
+
+.city .inner h3 {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.city .place ul {
+    display: flex;
+}
+
+.city .place ul li {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.city .place ul li.on {
+    background-color: #EB0000;
+    color: #fff;
+}
+
+.city .inner .list {
+    display: none;
+}
+
+.city .inner .list.on {
+    display: flex;
+}
+
+.city .inner .list .li_inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.city .inner .list .li_inner .item {
+    width: 48%;
+}
+
+.city .inner .list .li_inner .item img {
+    width: 100%;
+    max-height: 360px;
+    height: 40vw;
+    object-fit: cover;
+    display: block;
+}
+
+.city .inner .list .li_inner .item img:hover {
+    transform: scale(0.9);
+    transition: 1s;
+}
+
+.city .inner .list .li_inner .item .text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.city .inner .list .li_inner .item span {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #4700CC;
+    color: #fff;
+}
 
 
+/* 🎈time_deal */
+.time_deal {
+    padding: 10rem 0;
+    max-width: 1920px;
+    width: 100%;
+}
+
+.time_deal .inner {
+    max-width: 1440px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+}
+
+.time_deal .inner .list {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.time_deal .inner .list .item figure {
+    max-width: 20vw;
+    width: 100%;
+    height: 20vw;
+}
+
+.time_deal .inner .list .item figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.time_deal .inner .list .item .text {
+    text-align: center;
+}
+
+.time_deal .inner .list .item .text .top p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.time_deal .inner .list .item .text .top span {
+    font-weight: bold;
+}
+.time_deal .inner .list .item .text .top span strong{
+    color: #EB0000;
+    margin-right: 10px;
+}
+.time_deal .inner .list .item .text .time {
+    margin-top: 10px;
+    background-color: #242424;
+    /* width: 300px; */
+    width: 20.83vw;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.time_deal .inner .list .item .text .time::before {
+    content: '';
+    background: url('../img/timer-20.png') center no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.time_deal .inner h3 {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #222;
+    margin-bottom: 6rem;
+}
+
+/* 🎈review */
+.review {
+    max-width: 1920px;
+    width: 100%;
+    padding: 10rem 0;
+    background-color: #ebebeb;
+}
+
+.review .inner {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: calc(100% - 20px);
+    position: relative;
+}
+
+.review .inner h3 {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #222;
+    margin-bottom: 6rem;
+}
+
+.review .inner .rv_list .item {
+    width: 100%;
+    display: flex;
+}
+
+.review .inner .rv_list .item div {
+    padding: 5rem 3rem;
+}
+
+.review .inner .rv_list .item div h4 {
+    font-size: 30px;
+    margin-bottom: 2.5rem;
+}
+
+.review .inner .rv_list .item div p {
+    position: relative;
+}
+.review .inner .rv_list .item div p:before {
+    content:'';
+    background-image: url('../img/quote_left-30\ \(1\).png');
+    background-size: 18px 18px;
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 18px;
+    height: 18px;
+}
+
+
+
+.review .inner .rv_list .item div span a {
+    display: block;
+    border: 1px solid #333;
+    width: 10rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.review .inner .rv_list .item div span {
+    display: block;
+    width: 0;
+    transition: 1s;
+}
+
+.review .inner .rv_list .item div span:hover {
+    width: 10rem;
+    height: 4rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.review .inner .rv_list .item:nth-child(2) div {
+    order: -1;
+}
+
+.review .inner .rv_list .item img {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.review .inner .rv_list .item figure {
+    width: 50%;
+}
+.review .inner .rv_list .item div {
+    width: 50%;
+}
+
+
+
+/* 🎈footer */
+footer {
+    padding: 15px 0;
+    max-width: 1920px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+footer .inner {
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+    text-align: center;
+}
+
+footer .inner div {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+footer .inner .info li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+footer .inner .info li:nth-child(2) {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+footer .inner .social li {
+    display: inline-block;
+}
+
+footer .inner .social li img {
+    height: 30px;
+    filter: grayscale(1) contrast(0.75);
+}
+
+footer .inner .social li img:hover {
+    filter: grayscale(0) contrast(1);
+}
+
+footer .inner p {
+    font-size: 14px;
+    color:#B5B5B5;
+    margin-top: 10px;
+}
+
+/* 🎨media-query */
+@media screen and (max-width:1600px) {
+    .time_deal .inner .list .item .text .time::before {
+        left: 15%;
+    }
+}
+
+@media screen and (max-width:1260px) {
+    .time_deal .inner .list .item .text .time::before {
+        left: 7%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .time_deal .inner .list .item .text .time::before {
+        left: 3%;
+    }
+}
