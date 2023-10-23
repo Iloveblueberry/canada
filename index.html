@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        window.onload = function () {
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 10,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+
+            });//main_visual swiper
+
+
+            let city = document.querySelector('.city');
+            let cityBtn = city.querySelectorAll('li');
+            let list = city.querySelectorAll('.list');
+
+            for (let i = 0; i < cityBtn.length; i++) {
+                cityBtn[i].onclick = function () {
+
+                    cityBtn.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                    cityBtn[i].classList.add('on')
+
+                    list.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                    list[i].classList.add('on')
+                }//menuBtn.click
+
+            }//for
+
+            // Set the date we're counting down to
+            const countDownDate = new Date("Nov 20, 2023 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            const x = setInterval(function () {
+
+                // Get today's date and time
+                const now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                const distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                [...document.getElementsByClassName("time")].forEach(e => e.innerHTML = days + "일 " + hours + "시간 "
+                    + minutes + "분 " + seconds + "초 ");
+                if (distance < 0) {
+                    clearInterval(x);
+                    [...document.getElementsByClassName("time")].forEach(e => e.innerHTML = "EXPIRED");
+                }
+            }, 1000);//countdown
+            
+            const btn = document.getElementById('mobile_btn')
+            const gnb = document.getElementById('gnb')
+
+            //클릭할 때 실행할 함수
+            const clickHandler = () => {
+                if(btn.classList.contains('on')){
+                    btn.classList.remove('on')
+                    gnb.classList.remove('on')
+                } else {
+                    btn.classList.add('on')
+                    gnb.classList.add('on')
+                }
+            }
+            btn.addEventListener("click", clickHandler)
+
+        }//javascript
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <h1><a href="#"><img src="img/logo2.png" alt="로고"></a></h1>
+                <ul class="nav pc">
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#">Ytour 소개</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul><!-- .nav end -->
+                <div class="lang pc">
+                    <ul>
+                        <li><a href="english.html"><img src="img/canada.png" alt="canada"><span>English</span></a></li>
+                        <li><a href="index.html"><img src="img/south_korea.png" alt="korea"><span>한국어</span></a></li>
+                        <li><a href="#"><img src="img/login.png" alt="login"></a></li>
+                    </ul>
+                </div><!-- .lang end -->
+
+                <!-- 🎀mobile -->
+                <div class="mobile mobile_menu" id="mobile_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div><!-- .mobile_menu -->
+                
+
+                <nav class="mobile mobile_gnb" id="gnb" >
+                    <ul class="user">
+                        <li><a href="english.html"><img src="img/canada.png" alt="캐나다">English</a></li>
+                        <li><a href="index.html"><img src="img/south_korea.png" alt="한국어">한국어</a></li>
+                        <li><a href="#"><img src="img/login.png" alt="login"></a>
+                        </li>
+                    </ul>
+
+                    <ul class="depth01">
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">Ytour 소개</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul><!-- .depth01 end -->
+                </nav><!-- .mobile_gnb end -->
+
+
+            </div><!-- .inner end -->
+
+
+        </header><!-- .header end -->
+
+        <!-- 🎈main -->
+        <main>
+            <h2>CANADA</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/main_visual.jpg" alt="메인1"></div>
+                    <div class="swiper-slide"><img src="img/토론토메인.jpg" alt="메인2"></div>
+                    <div class="swiper-slide"><img src="img/오로라 (2).jpg" alt="메인3"></div>
+                </div>
+            </div><!-- .swiper end -->
+
+            <div class="booking_box">
+                <div class="booking_inner">
+                    <div class="place">
+                        <label for="pl">여행지</label>
+                        <select name="place" id="pl">
+                            <option value="vancouver">밴쿠버</option>
+                            <option value="toronto">토론토</option>
+                            <option value="joffrelake">옐로우나이프</option>
+                        </select><!-- #pl end -->
+                    </div><!-- .place end -->
+                    <div class="guest">
+                        <label for="num">게스트</label>
+                        <select name="num" id="num">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select><!-- .num end -->
+                    </div><!-- .guest end -->
+                    <div class="date">
+                        <label for="date01">출발예정일</label>
+                        <input type="date" id="date01" max="2077-10-23" min="2023-10-01" value="2023-10-23">
+                    </div><!-- .date end -->
+                    <div class="search">
+                        <input type="submit" value="검색하기" class="submit">
+                    </div><!-- .search end -->
+                </div><!-- .booking_inner end -->
+            </div><!-- .booking_box end -->
+        </main>
+
+        <!-- 🎈city -->
+        <section class="city">
+            <div class="inner">
+                <h3>추천 여행지</h3>
+                <div class="place">
+                    <ul>
+                        <li class="on">밴쿠버</li>
+                        <li>토론토</li>
+                        <li>옐로우나이프</li>
+                    </ul>
+                </div><!-- .place end -->
+
+                <div class="list on">
+                    <div class="li_inner van">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/스탠리파크.jpg" alt="스탠리파크">
+                            </figure>
+                            <div class="text">
+                                <h4>밴쿠버 시티투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/국회의사당.jpg" alt="빅토리아">
+                            </figure>
+                            <div class="text">
+                                <h4>빅토리아 2박3일</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/블랙콤스키장.jpg" alt="휘슬러">
+                            </figure>
+                            <div class="text">
+                                <h4>휘슬러 스키투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/조프리레이크.jpg" alt="조프리레이크">
+                            </figure>
+                            <div class="text">
+                                <h4>조프리레이크 당일투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                            <!-- .text end -->
+                        </div><!-- .item end -->
+                    </div><!-- van end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <div class="li_inner toronto">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토시티2.jpg" alt="토론토시티">
+                            </figure>
+                            <div class="text">
+                                <h4>토론토 시티투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토박물관.jpg" alt="토론토박물관">
+                            </figure>
+                            <div class="text">
+                                <h4>토론토 박물관/미술관 투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/나아이가라폭포.jpg" alt="나이아가라폭포">
+                            </figure>
+                            <div class="text">
+                                <h4>나이아가라 폭포 당일투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토zoo.jpg" alt="토론토동물원">
+                            </figure>
+                            <div class="text">
+                                <h4>토론토 동물원투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                    </div><!-- toronto end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <div class="li_inner yellow">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/오로라.jpg" alt="오로라">
+                            </figure>
+                            <div class="text">
+                                <h4>오로라 투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/스노우슈잉.png" alt="스노우슈잉">
+                            </figure>
+                            <div class="text">
+                                <h4>스노우슈잉 체험</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/개썰매2.jpg" alt="개썰매">
+                            </figure>
+                            <div class="text">
+                                <h4>개썰매 투어</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/얼음낚시.jpg" alt="얼음낚시">
+                            </figure>
+                            <div class="text">
+                                <h4>얼음낚시 체험</h4>
+                                <span><a href="#">자세히보기</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                    </div><!-- yellow end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .city end -->
+
+        <!-- 🎈time_deal -->
+        <section class="time_deal">
+            <div class="inner">
+                <h3>타임특가</h3>
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/카누640.jpg" alt="카누">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>조프리레이크 카누체험</p>
+                                <span><strong>28%</strong>129,000원~</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/블랙콤스키레슨.jpg" alt="스키레슨">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>휘슬러 1일 스키레슨+입장권</p>
+                                <span><strong>30%</strong>249,000원~</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/Scandinave_Spa_Whistler.jpg" alt="야외스파">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>스칸디나비아 스파</p>
+                                <span><strong>30%</strong>199,000원~</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .time_deal -->
+
+        <section class="review">
+            <div class="inner">
+                <h3>BEST 여행후기</h3>
+                <div class="rv_list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/place/스탠리파크.jpg" alt="스탠리파크">
+                        </figure>
+                        <div>
+                            <h4>밴쿠버 시티투어</h4>
+                            <p>Ytour Y가이드님 최고에요! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quas
+                                dicta, veniam, nam, exercitationem dignissimos natus suscipit error illum dolor
+                                voluptatum architecto impedit odio! Odit sint necessitatibus esse qui nobis. Lorem ipsum
+                                dolor sit amet consectetur, adipisicing elit. Pariatur minus autem nam voluptates
+                                consequatur sed tempora quidem quibusdam, animi necessitatibus, eos eum laudantium
+                                exercitationem quasi nisi incidunt magnam commodi nemo!
+                            </p>
+                            <span><a href="#">자세히보기</a></span>
+                        </div>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/place/오로라.jpg" alt="오로라">
+                        </figure>
+                        <div>
+                            <h4>오로라 투어</h4>
+                            <p>Ytour Y가이드님 최고에요! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quas
+                                dicta, veniam, nam, exercitationem dignissimos natus suscipit error illum dolor
+                                voluptatum architecto impedit odio! Odit sint necessitatibus esse qui nobis. Lorem ipsum
+                                dolor sit amet consectetur, adipisicing elit. Pariatur minus autem nam voluptates
+                                consequatur sed tempora quidem quibusdam, animi necessitatibus, eos eum laudantium
+                                exercitationem quasi nisi incidunt magnam commodi nemo!
+                            </p>
+                            <span><a href="#">자세히보기</a></span>
+                        </div>
+                    </div><!-- .item end -->
+
+                </div><!-- rv_list end -->
+            </div><!-- .inner end -->
+        </section><!-- .review end -->
+
+        <footer>
+            <div class="inner">
+                <div><a href="#"><img src="img/logo2.png" alt="로고"></a></div>
+                <ul class="info">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">오시는길</a></li>
+                    <li><a href="#">1:1문의</a></li>
+                </ul><!-- .info end -->
+                <ul class="social">
+                    <li><a href="#"><img src="img/social/facebook40.png" alt="페이스북"></a></li>
+                    <li><a href="#"><img src="img/social/instagram40.png" alt="인스타그램"></a></li>
+                    <li><a href="#"><img src="img/social/twitter40.png" alt="트위터"></a></li>
+                    <li><a href="#"><img src="img/social/youtube40.png" alt="유튜브"></a></li>
+                </ul><!-- .social end -->
+                <p>ⓒYtour.All Rights Reserved.</p>
+            </div><!-- .inner end -->
+        </footer>
+    </div><!-- .wrap end -->
+</body>
+
+</html>
