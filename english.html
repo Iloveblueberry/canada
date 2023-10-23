@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 10,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+
+            });//main_visual swiper
+
+
+            let city = document.querySelector('.city');
+            let cityBtn = city.querySelectorAll('li');
+            let list = city.querySelectorAll('.list');
+
+            for (let i = 0; i < cityBtn.length; i++) {
+                cityBtn[i].onclick = function () {
+
+                    cityBtn.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                    cityBtn[i].classList.add('on')
+
+                    list.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                    list[i].classList.add('on')
+                }
+            }//city_tab_menu
+
+            // Set the date we're counting down to
+            const countDownDate = new Date("Nov 20, 2023 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            const x = setInterval(function () {
+
+                // Get today's date and time
+                const now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                const distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                [...document.getElementsByClassName("time")].forEach(e => e.innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ");
+                if (distance < 0) {
+                    clearInterval(x);
+                    [...document.getElementsByClassName("time")].forEach(e => e.innerHTML = "EXPIRED");
+                }
+            }, 1000);//countdown
+            
+              
+            const btn = document.getElementById('mobile_btn')
+            const gnb = document.getElementById('gnb')
+
+            //클릭할 때 실행할 함수
+            const clickHandler = () => {
+                if(btn.classList.contains('on')){
+                    btn.classList.remove('on')
+                    gnb.classList.remove('on')
+                } else {
+                    btn.classList.add('on')
+                    gnb.classList.add('on')
+                }
+            }
+            btn.addEventListener("click", clickHandler)
+
+
+        }//script end
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <h1><a href="#"><img src="img/logo2.png" alt="로고"></a></h1>
+                <ul class="nav pc">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul><!-- .nav end -->
+                <div class="lang pc">
+                    <ul>
+                        <li><a href="english.html" ><img src="img/canada.png" alt="canada"><span>English</span></a></li>
+                        <li><a href="korean.html" ><img src="img/south_korea.png" alt="korea"><span>한국어</span></a></li>
+                        <li><a href="#"><img src="img/login.png" alt="login"></a></li>
+                    </ul>
+                </div><!-- .lang end -->
+                
+                <!-- 🎀mobile -->
+                <div class="mobile mobile_menu" id="mobile_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div><!-- .mobile_menu -->
+            </div><!-- .inner end -->
+
+            <nav class="mobile mobile_gnb" id="gnb" >
+                <ul class="user">
+                    <li><a href="english.html"><img src="img/canada.png" alt="캐나다">English</a></li>
+                    <li><a href="korean.html"><img src="img/south_korea.png" alt="한국어">한국어</a></li>
+                    <li><a href="#"><img src="img/login.png" alt="login"></a>
+                    </li>
+                </ul>
+
+                <ul class="depth01">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul><!-- .depth01 end -->
+            </nav><!-- .mobile_gnb end -->
+
+        </header><!-- .header end -->
+
+        <!-- 🎈main -->
+        <main>
+            <h2>CANADA</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/main_visual.jpg" alt="메인1"></div>
+                    <div class="swiper-slide"><img src="img/토론토메인.jpg" alt="메인2"></div>
+                    <div class="swiper-slide"><img src="img/오로라 (2).jpg" alt="메인3"></div>
+                </div>
+            </div><!-- .swiper end -->
+            <div class="booking_box">
+                <div class="booking_inner">
+                    <div class="place">
+                        <label for="pl">Destination</label>
+                        <select name="place" id="pl">
+                            <option value="vancouver">Vancouver</option>
+                            <option value="toronto">Toronto</option>
+                            <option value="joffrelake">Yellowknife</option>
+                        </select><!-- #pl end -->
+                    </div><!-- .place end -->
+                    <div class="guest">
+                        <label for="num">Guest</label>
+                        <select name="num" id="num">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select><!-- .num end -->
+                    </div><!-- .guest end -->
+                    <div class="date">
+                        <label for="date01">Depature date</label>
+                        <input type="date" id="date01" max="2077-10-23" min="2023-10-01" value="2023-10-23">
+                    </div><!-- .date end -->
+                    <div class="search">
+                        <input type="submit" value="Search" class="submit">
+                    </div><!-- .search end -->
+                </div><!-- .booking_inner end -->
+            </div><!-- .booking_box end -->
+        </main>
+
+        <!-- 🎈city -->
+        <section class="city">
+            <div class="inner">
+                <h3>Popular Place</h3>
+                <div class="place">
+                    <ul>
+                        <li class="on">Vancouver</li>
+                        <li>Toronto</li>
+                        <li>Yellowknife</li>
+                    </ul>
+                </div><!-- .place end -->
+
+                <div class="list on">
+                    <div class="li_inner van">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/스탠리파크.jpg" alt="스탠리파크">
+                            </figure>
+                            <div class="text">
+                                <h4>Vancouver City Tour</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/국회의사당.jpg" alt="빅토리아">
+                            </figure>
+                            <div class="text">
+                                <h4>Victoria 3D2N</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/블랙콤스키장.jpg" alt="휘슬러">
+                            </figure>
+                            <div class="text">
+                                <h4>Whistler Ski Tour</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/조프리레이크.jpg" alt="조프리레이크">
+                            </figure>
+                            <div class="text">
+                                <h4>Joffrelake Day Trip</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                            <!-- .text end -->
+                        </div><!-- .item end -->
+                    </div><!-- van end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <div class="li_inner toronto">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토시티2.jpg" alt="토론토시티">
+                            </figure>
+                            <div class="text">
+                                <h4>Toronto City Tour</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토박물관.jpg" alt="토론토박물관">
+                            </figure>
+                            <div class="text">
+                                <h4>Toronto Museum/Art gallery Tour</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/나아이가라폭포.jpg" alt="나이아가라폭포">
+                            </figure>
+                            <div class="text">
+                                <h4>Naiagara Falls 1day</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/토론토zoo.jpg" alt="토론토동물원">
+                            </figure>
+                            <div class="text">
+                                <h4>Toronto Zoo</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div><!-- .text end -->
+                        </div><!-- .item end -->
+                    </div><!-- toronto end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <div class="li_inner yellow">
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/오로라.jpg" alt="오로라">
+                            </figure>
+                            <div class="text">
+                                <h4>Aurora Watching</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/스노우슈잉.png" alt="스노우슈잉">
+                            </figure>
+                            <div class="text">
+                                <h4>Snowshoeing</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/개썰매2.jpg" alt="개썰매">
+                            </figure>
+                            <div class="text">
+                                <h4>Dog sledding</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/place/얼음낚시.jpg" alt="얼음낚시">
+                            </figure>
+                            <div class="text">
+                                <h4>Ice Fishing</h4>
+                                <span><a href="#">View Details</a></span>
+                            </div>
+                        </div><!-- .item end -->
+                    </div><!-- yellow end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .city end -->
+
+        <!-- 🎈time_deal -->
+        <section class="time_deal">
+            <div class="inner">
+                <h3>Time Deal</h3>
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/카누640.jpg" alt="카누">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>Joffrelake Canoeing</p>
+                                <span><strong>28%</strong>From C$129</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/블랙콤스키레슨.jpg" alt="스키레슨">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>Whistler 1Day Ski lesson + Admission</p>
+                                <span><strong>30%</strong>From C$249</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <a href="#">
+                                <img src="img/place/Scandinave_Spa_Whistler.jpg" alt="야외스파">
+                            </a>
+                        </figure>
+                        <div class="text">
+                            <div class="top">
+                                <p>Scandinavia Spa</p>
+                                <span><strong>30%</strong>From C$199</span>
+                            </div><!-- .top end -->
+                            <p class="time"></p><!-- .time end -->
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .time_deal -->
+
+        <section class="review">
+            <div class="inner">
+                <h3>BEST Review</h3>
+                <div class="rv_list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/place/스탠리파크.jpg" alt="스탠리파크">
+                        </figure>
+                        <div>
+                            <h4>Vancouver City Tour</h4>
+                            <p>Ytour Yguide are the best! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quas
+                                dicta, veniam, nam, exercitationem dignissimos natus suscipit error illum dolor
+                                voluptatum architecto impedit odio! Odit sint necessitatibus esse qui nobis. Lorem ipsum
+                                dolor sit amet consectetur, adipisicing elit. Pariatur minus autem nam voluptates
+                                consequatur sed tempora quidem quibusdam, animi necessitatibus, eos eum laudantium
+                                exercitationem quasi nisi incidunt magnam commodi nemo!
+                            </p>
+                            <span><a href="#">View Details</a></span>
+                        </div>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/place/오로라.jpg" alt="오로라">
+                        </figure>
+                        <div>
+                            <h4>Aurora Watching</h4>
+                            <p>Ytour Yguide are the best! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quas
+                                dicta, veniam, nam, exercitationem dignissimos natus suscipit error illum dolor
+                                voluptatum architecto impedit odio! Odit sint necessitatibus esse qui nobis. Lorem ipsum
+                                dolor sit amet consectetur, adipisicing elit. Pariatur minus autem nam voluptates
+                                consequatur sed tempora quidem quibusdam, animi necessitatibus, eos eum laudantium
+                                exercitationem quasi nisi incidunt magnam commodi nemo!
+                            </p>
+                            <span><a href="#">View Details</a></span>
+                        </div>
+                    </div><!-- .item end -->
+
+                </div><!-- rv_list end -->
+            </div><!-- .inner end -->
+        </section><!-- .review end -->
+
+        <footer>
+            <div class="inner">
+                <div><a href="#"><img src="img/logo2.png" alt="로고"></a></div>
+                <ul class="info">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">1:1Chat</a></li>
+                </ul><!-- .info end -->
+                <ul class="social">
+                    <li><a href="#"><img src="img/social/facebook40.png" alt="페이스북"></a></li>
+                    <li><a href="#"><img src="img/social/instagram40.png" alt="인스타그램"></a></li>
+                    <li><a href="#"><img src="img/social/twitter40.png" alt="트위터"></a></li>
+                    <li><a href="#"><img src="img/social/youtube40.png" alt="유튜브"></a></li>
+                </ul><!-- .social end -->
+                <p>ⓒYtour.All Rights Reserved.</p>
+            </div><!-- .inner end -->
+        </footer>
+    </div><!-- .wrap end -->
+</body>
+
+</html>
