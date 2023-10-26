@@ -67,13 +67,13 @@
                     [...document.getElementsByClassName("time")].forEach(e => e.innerHTML = "EXPIRED");
                 }
             }, 1000);//countdown
-            
+
             const btn = document.getElementById('mobile_btn')
             const gnb = document.getElementById('gnb')
 
             //클릭할 때 실행할 함수
             const clickHandler = () => {
-                if(btn.classList.contains('on')){
+                if (btn.classList.contains('on')) {
                     btn.classList.remove('on')
                     gnb.classList.remove('on')
                 } else {
@@ -82,6 +82,23 @@
                 }
             }
             btn.addEventListener("click", clickHandler)
+
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 500) {
+                        $('.top_btn').fadeIn();
+                    } else {
+                        $('.top_btn').fadeOut();
+                    }
+                });
+
+                $(".top_btn").click(function () {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 400);
+                    return false;
+                });
+            });
 
         }//javascript
     </script>
@@ -111,9 +128,9 @@
                     <span></span>
                     <span></span>
                 </div><!-- .mobile_menu -->
-                
 
-                <nav class="mobile mobile_gnb" id="gnb" >
+
+                <nav class="mobile mobile_gnb" id="gnb">
                     <ul class="user">
                         <li><a href="english.html"><img src="img/canada.png" alt="캐나다">English</a></li>
                         <li><a href="index.html"><img src="img/south_korea.png" alt="한국어">한국어</a></li>
@@ -226,7 +243,7 @@
                                 <img src="img/place/조프리레이크.jpg" alt="조프리레이크">
                             </figure>
                             <div class="text">
-                                <h4>조프리레이크 당일투어</h4>
+                                <h4 class="joffre">조프리레이크 <br>당일투어</h4>
                                 <span><a href="#">자세히보기</a></span>
                             </div>
                             <!-- .text end -->
@@ -430,6 +447,9 @@
             </div><!-- .inner end -->
         </footer>
     </div><!-- .wrap end -->
+    <div class="top_btn">
+        <p><a href="#">top</a></p>
+    </div><!-- .top_btn -->
 </body>
 
 </html>
