@@ -277,6 +277,10 @@ main .booking_box .booking_inner .search .submit {
     margin-bottom: 20px;
 }
 
+.city .item .text .joffre br {
+    display: none;
+}
+
 .city .inner .list .li_inner .item span {
     font-size: 16px;
     padding: 10px;
@@ -696,6 +700,7 @@ footer .inner p {
     .time_deal .inner .list .item {
         display: flex;
         margin-bottom: 20px;
+        position: relative;
     }
 
     .time_deal .inner .list .item figure {
@@ -706,10 +711,16 @@ footer .inner p {
 
     .time_deal .inner .list .item .text {
         text-align: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
     }
 
     .time_deal .inner .list .item .text .time {
-        width: 41.83vw;
+        width: 38.83vw;
+        height: 30px;
+        line-height: 30px;
     }
 
 }/* 767px end */
@@ -740,6 +751,15 @@ footer .inner p {
     }
 }
 
+@media screen and (max-width:540px) {
+    .city .item .text .joffre br {
+        display: block;
+    } 
+    .time_deal .inner .list .item .text .time {
+        width: 42.83vw;
+    }
+}
+
 @media screen and (max-width:500px) {
     .city .inner .list .li_inner .item .text {
         font-size: 15px;
@@ -748,5 +768,28 @@ footer .inner p {
     .city .inner .list .li_inner .item .text span {
         padding: 8px;
         font-size: 14px;
+    }
+}
+
+.top_btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e60000;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    z-index: 999;
+}
+
+@media screen and (max-width:460px) {
+    main .booking_box {
+        width: 380px;
+    }
+
+    .time_deal .inner .list .item .text .time {
+        width: 48.83vw;
     }
 }
